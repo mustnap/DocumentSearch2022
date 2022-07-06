@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\DocumentController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,3 +28,13 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+Route::get('documents/search', [DocumentController::class, 'search'])
+        ->name('documents.search')
+        ->middleware('auth');
+Route::get('documents/download/{id}', [DocumentController::class, 'download'])
+        ->name('documents.download')
+        ->middleware('auth');
+        
+Route::resource('documents', DocumentController::class)->middleware('auth');
+
