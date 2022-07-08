@@ -15,3 +15,10 @@ class PdfFileReader implements FileReader
     }
 
 }
+
+
+
+        // $class = config('filereader.application/pdf');
+        // $class = config('filereader.text/plain');
+        // $class = config('filereader.application/vnd.openxmlformats-officedocument.wordprocessingml.document');
+        $class = config('filereader.application/vnd.openxmlformats');

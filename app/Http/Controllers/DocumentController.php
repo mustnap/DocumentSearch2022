@@ -44,7 +44,7 @@ class DocumentController extends Controller
     public function store(StoreDocumentRequest $request, SaveDocumentAction $documentAction)
     {
         $validated = $request->validate([
-            'document' => 'required|mimetypes:text/plain,application/pdf'
+            'document' => 'required|mimetypes:text/plain,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document'
         ]);
 
         $documentAction->execute($request->toArray());
